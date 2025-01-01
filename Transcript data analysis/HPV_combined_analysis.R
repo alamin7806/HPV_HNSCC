@@ -138,13 +138,19 @@ ekegg_DE = enrichKEGG(gene = entgene_DE,
 
 view(ekegg_DE)
 
+## individual gene expression
 
+plotCounts(dds322, gene = "ENSG00000178222", 
+           intgroup = "condition", main = "GSE211322")
 
+plotCounts(dds305, gene = "ENSG00000178222", 
+           intgroup = "condition", main = "GSE250305")
 
+plotCounts(dds462, gene = "ENSG00000178222", 
+           intgroup = "condition", main = "GSE70462")
 
-
-
-
+plotCounts(dds536, gene = "ENSG00000178222", 
+           intgroup = "condition", main = "GSE72536")
 
 
 
