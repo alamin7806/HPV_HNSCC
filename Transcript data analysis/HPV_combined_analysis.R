@@ -9,7 +9,7 @@ library(dplyr)
 library(clusterProfiler)
 library(org.Hs.eg.db)
 library(AnnotationDbi)
-
+library(DESeq2)
 
 getwd()
 setwd("C:/Users/hp/Desktop/HPV/GSE70462/RNAseq_data_analysis/GSE70463")
@@ -83,7 +83,7 @@ list_DE_gene = list(GSE250305= anno305_diff,
 v = venn(list_DE_gene)
 
 v2 = ggVennDiagram(list_DE_gene) +
-ggtitle("Venn diagram of overlapping DEGs fromintersection of four independent GEO datasets")
+ggtitle("Venn diagram of overlapping DEGs frominter section of four independent GEO datasets")
 v2
 
 union_DE_genes = Reduce(union, list_DE_gene)
@@ -133,6 +133,9 @@ view(summary(ego_DE))
 barplot(ego_DE, title = "Overlapping Genes")
 dotplot(ego_DE, title = "Overlapping Genes")
 
+
+
+
 ekegg_DE = enrichKEGG(gene = entgene_DE,
                       universe = entUni_DE)
 
@@ -151,7 +154,6 @@ plotCounts(dds462, gene = "ENSG00000178222",
 
 plotCounts(dds536, gene = "ENSG00000178222", 
            intgroup = "condition", main = "GSE72536")
-
 
 
 
